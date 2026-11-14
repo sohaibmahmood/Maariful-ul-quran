@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-arabic: "Amiri", "Traditional Arabic", serif;
+
+  /* Brand Colors: Primary Green, White Canvas, Secondary Skin/Beige */
+  --color-brand-green: #115e34;
+  --color-brand-green-dark: #0a4223;
+  --color-brand-green-light: #1d7a47;
+  --color-brand-green-tint: #eef5f0;
+
+  --color-brand-white: #ffffff;
+  --color-brand-surface: #fcfcfa;
+
+  --color-brand-beige: #f6efe4;
+  --color-brand-beige-soft: #faf6ef;
+  --color-brand-beige-dark: #eadcc8;
+  --color-brand-border: #dfd1bc;
+
+  --color-brand-charcoal: #1b221e;
+  --color-brand-muted: #525d56;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-brand-white);
+    color: var(--color-brand-charcoal);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+/* Custom refined scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-green);
+}

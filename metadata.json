@@ -1,0 +1,8 @@
+{
+  "name": "Maarif UL Quran",
+  "description": "An elegant, classical online academy for Quranic recitation, memorization, and Arabic study with qualified scholars.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
