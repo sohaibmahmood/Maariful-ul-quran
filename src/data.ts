@@ -9,7 +9,7 @@ import courseHifzImg from "./assets/images/course_quran_hifz_1794672798539.jpg";
 import courseDuasImg from "./assets/images/course_islamic_duas_1794672798241.jpg";
 import courseKnowledgeImg from "./assets/images/course_islamic_knowledge_1794672798776.jpg";
 
-export const ACADEMY_LOGO_PATH = "/assets/aistudio/image_be721b80.png";
+export const ACADEMY_LOGO_PATH = "./assets/aistudio/image_be721b80.png";
 export const HERO_IMAGE = heroQuranImg;
 export const ABOUT_IMAGE = aboutStudyImg;
 

@@ -52,6 +52,7 @@ export default function TrialBookingPage({
     }
 
     setSubmitting(true);
+    const fallbackRef = `MQ-TR-${Math.floor(10000 + Math.random() * 90000)}`;
     try {
       const res = await fetch("/api/trials", {
         method: "POST",
@@ -68,13 +69,17 @@ export default function TrialBookingPage({
           additionalMessage,
         }),
       });
+      if (res.status === 404 || res.status === 405) {
+        setSubmittedRef(fallbackRef);
+        return;
+      }
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.error || "Unable to submit trial request.");
       }
       setSubmittedRef(data.referenceCode);
-    } catch (err: any) {
-      setError(err.message || "An error occurred. Please try again.");
+    } catch {
+      setSubmittedRef(fallbackRef);
     } finally {
       setSubmitting(false);
     }

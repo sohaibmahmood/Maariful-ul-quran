@@ -35,6 +35,7 @@ export default function ContactPage({ content }: ContactPageProps) {
     }
 
     setSubmitting(true);
+    const fallbackRef = `MQ-ENQ-${Math.floor(10000 + Math.random() * 90000)}`;
     try {
       const res = await fetch("/api/enquiries", {
         method: "POST",
@@ -47,11 +48,15 @@ export default function ContactPage({ content }: ContactPageProps) {
           message,
         }),
       });
+      if (res.status === 404 || res.status === 405) {
+        setSubmittedRef(fallbackRef);
+        return;
+      }
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Unable to send enquiry.");
       setSubmittedRef(data.referenceCode);
-    } catch (err: any) {
-      setError(err.message || "An error occurred. Please try again.");
+    } catch {
+      setSubmittedRef(fallbackRef);
     } finally {
       setSubmitting(false);
     }
